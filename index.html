@@ -26,7 +26,7 @@
         <form class="mt-4 flex" x-on:submit.prevent>
             <!-- Add Taks -->
             <input type="text"
-                class="flex-1 border border-gray-300 p-7 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                class="flex-1 border border-gray-300 p-4 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
                 placeholder="Enter a task" x-model="newTask">
             <!-- Add Button -->
             <button class="ml-2 bg-yellow-500 text-white px-4 py-7 rounded-md hover:bg-yellow-600"
@@ -48,13 +48,13 @@
                         @keyup.enter="task.editing = false" class="border p-1 rounded-md w-full">
 
                     <!-- Delete Button -->
-                    <button class="bg-red-500 text-white px-5 py-1 rounded-md text-sm hover:bg-red-600 me-2"
+                    <button class="bg-yellow-500 text-white px-2 py-1 rounded-md text-sm hover:bg-red-600 me-2"
                         @click="tasks = tasks.filter((currTask) => currTask != task)">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
 
                     <!-- Edit Button -->
-                    <button class="bg-blue-500 text-white px-8 py-1 rounded-md text-sm hover:text-blue-700"
+                    <button class="bg-blue-500 text-white px-2 py-1 rounded-md text-sm hover:text-blue-700"
                         @click="task.editing = true">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </button>
