@@ -27,7 +27,6 @@
         <form class="mt-4 flex" x-on:submit.prevent>
             <!-- Add Taks -->
             <input type="text"
-
                 class="flex-1 border border-gray-300 p-2 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
                 placeholder="Enter a new task" x-model="newTask">
 
@@ -57,7 +56,7 @@
                     </button>
 
                     <!-- Edit Button -->
-                    <button class="bg-blue-500 text-white px-2 py-1 rounded-md text-sm hover:text-blue-700"
+                    <button class="bg-blue-500 text-white px-2 py-1 rounded-md text-sm hover:bg-purple-500"
                         @click="task.editing = true">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </button>
@@ -68,8 +67,7 @@
         <!-- Clear Tasks Button -->
 
 
-        <button class="w-full mt-4 bg-pink-500 text-white px-8 py-2 rounded-md hover:bg-red-600" @click="tasks = []"
-
+        <button class="w-full mt-4 bg-gray-500 text-white px-8 py-2 rounded-md hover:bg-red-600" @click="tasks = []"
             x-show="tasks.length">
             Clear All Tasks
         </button>
