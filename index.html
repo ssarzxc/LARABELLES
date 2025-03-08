@@ -19,7 +19,7 @@
             confetti();
         }
     }">
-        <div class="bg-yellow-800 text-white text-center py-8 rounded-md">
+        <div class="bg-pink-500 text-white text-center py-5 rounded-md">
             <h4 class="text-lg font-semibold">To-Do</h4>
         </div>
 
@@ -27,6 +27,7 @@
             <!-- Add Taks -->
             <input type="text"
                 class="flex-1 border border-gray-300 p-4 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+               
                 placeholder="Enter a task" x-model="newTask">
             <!-- Add Button -->
             <button class="ml-2 bg-yellow-500 text-white px-4 py-7 rounded-md hover:bg-yellow-600"
@@ -63,7 +64,8 @@
         </ul>
 
         <!-- Clear Tasks Button -->
-        <button class="w-full mt-4 bg-green-500 text-white px-8 py-2 rounded-md hover:bg-gray-600" @click="tasks = []"
+
+        <button class="w-full mt-4 bg-pink-500 text-white px-8 py-2 rounded-md hover:bg-red-600" @click="tasks = []"
             x-show="tasks.length">
             Clear Tasks
         </button>
