@@ -20,7 +20,7 @@
         }
     }">
         <div class="bg-green-800 text-white text-center py-2 rounded-md">
-            <h4 class="text-lg font-semibold">LARABELLES To-Do App</h4>
+            <h4 class="text-lg font-semibold">To-Do App by LARABELLES</h4>
         </div>
 
         <form class="mt-4 flex" x-on:submit.prevent>
@@ -31,7 +31,7 @@
             <!-- Add Button -->
             <button class="ml-2 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600"
                 x-on:click="if(newTask.trim().length) tasks.push({ text: newTask, done: false }); newTask  =''">
-                Add
+                Add Task
             </button>
         </form>
 
