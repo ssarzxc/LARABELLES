@@ -63,12 +63,12 @@
         </ul>
 
         <!-- Clear Tasks Button -->
-        <button class="w-full mt-4 bg-gray-500 text-white px-8 py-2 rounded-md hover:bg-gray-600" @click="tasks = []"
+        <button class="w-full mt-4 bg-green-500 text-white px-8 py-2 rounded-md hover:bg-gray-600" @click="tasks = []"
             x-show="tasks.length">
             Clear Tasks
         </button>
 
-        <div class="mt-2 text-center text-gray-600">
+        <div class="mt-2 text-center text-pink-600">
             <span x-text="tasks.filter((task) => task.done).length" class="font-bold"></span> /
             <span x-text="tasks.length" class="font-bold"></span> Tasks Completed
         </div>
