@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+    <div class="w-96 bg-white shadow-lg rounded-lg p-6" x-data="{
+        tasks: [],
+        newTask: '',
+        triggerConfetti() {
+            confetti();
+        }
+    }">
+        <div class="bg-yellow-800 text-white text-center py-8 rounded-md">
+            <h4 class="text-lg font-semibold">To-Do</h4>
+        </div>
+
+        <form class="mt-4 flex" x-on:submit.prevent>
+            <!-- Add Taks -->
+            <input type="text"
+                class="flex-1 border border-gray-300 p-7 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                placeholder="Enter a task" x-model="newTask">
+            <!-- Add Button -->
+            <button class="ml-2 bg-yellow-500 text-white px-4 py-7 rounded-md hover:bg-yellow-600"
+                x-on:click="if(newTask.trim().length) tasks.push({ text: newTask, done: false }); newTask  =''">
+                Add
+            </button>
+        </form>
+
+        <ul class="mt-4 space-y-2">
+            <template x-for="task in tasks">
+                <li class="flex justify-between items-center bg-gray-50 p-2 rounded-md shadow">
+                    <input type="checkbox" x-model="task.done" class="mr-2" @change="if(task.done) triggerConfetti()">
+
+                    <span x-show="!task.editing" :class="{ 'line-through text-gray-500': task.done }" x-text="task.text"
+                        class="flex-1 cursor-pointer"></span>
+
+                    <!-- While editing -->
+                    <input x-show="task.editing" x-model="task.text" @blur="task.editing = false"
+                        @keyup.enter="task.editing = false" class="border p-1 rounded-md w-full">
+
+                    <!-- Delete Button -->
+                    <button class="bg-red-500 text-white px-5 py-1 rounded-md text-sm hover:bg-red-600 me-2"
+                        @click="tasks = tasks.filter((currTask) => currTask != task)">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
+                    <!-- Edit Button -->
+                    <button class="bg-blue-500 text-white px-8 py-1 rounded-md text-sm hover:text-blue-700"
+                        @click="task.editing = true">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                </li>
+            </template>
+        </ul>
+
+        <!-- Clear Tasks Button -->
+        <button class="w-full mt-4 bg-gray-500 text-white px-8 py-2 rounded-md hover:bg-gray-600" @click="tasks = []"
+            x-show="tasks.length">
+            Clear Tasks
+        </button>
+
+        <div class="mt-2 text-center text-gray-600">
+            <span x-text="tasks.filter((task) => task.done).length" class="font-bold"></span> /
+            <span x-text="tasks.length" class="font-bold"></span> Tasks Completed
+        </div>
+    </div>
+</body>
+
+</html>
