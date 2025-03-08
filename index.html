@@ -19,8 +19,12 @@
             confetti();
         }
     }">
+
         <div class="bg-green-800 text-white text-center py-2 rounded-md">
-            <h4 class="text-lg font-semibold">LARABELLES To-Do App</h4>
+
+            <h4 class="text-lg font-bold">To-Do by LARABELLES</h4>
+
+
         </div>
 
         <form class="mt-4 flex" x-on:submit.prevent>
@@ -28,10 +32,11 @@
             <input type="text"
                 class="flex-1 border border-gray-300 p-2 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
                 placeholder="Enter a new task" x-model="newTask">
+
             <!-- Add Button -->
-            <button class="ml-2 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600"
+            <button class="ml-2 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600"
                 x-on:click="if(newTask.trim().length) tasks.push({ text: newTask, done: false }); newTask  =''">
-                Add
+                Add Task
             </button>
         </form>
 
@@ -48,13 +53,15 @@
                         @keyup.enter="task.editing = false" class="border p-1 rounded-md w-full">
 
                     <!-- Delete Button -->
-                    <button class="bg-red-500 text-white px-5 py-1 rounded-md text-sm hover:bg-red-600 me-2"
+                    <button class="bg-red-500 text-white px-4 py-1 rounded-md text-sm hover:bg-red-600 me-2"
                         @click="tasks = tasks.filter((currTask) => currTask != task)">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
 
                     <!-- Edit Button -->
-                    <button class="bg-blue-500 text-white px-8 py-1 rounded-md text-sm hover:text-blue-700"
+
+                    <button class="bg-blue-500 text-white px-3 py-1 rounded-md text-sm hover:bg-purple-500"
+
                         @click="task.editing = true">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </button>
@@ -63,14 +70,19 @@
         </ul>
 
         <!-- Clear Tasks Button -->
-        <button class="w-full mt-4 bg-gray-500 text-white px-8 py-2 rounded-md hover:bg-gray-600" @click="tasks = []"
+
+
+        <button class="w-full mt-4 bg-gray-500 text-white px-8 py-2 rounded-md hover:bg-red-600" @click="tasks = []"
             x-show="tasks.length">
             Clear All Tasks
         </button>
 
-        <div class="mt-2 text-center text-gray-600">
+        <div class="mt-2 text-center text-pink-600">
             <span x-text="tasks.filter((task) => task.done).length" class="font-bold"></span> /
             <span x-text="tasks.length" class="font-bold"></span> Tasks Completed
+        </div>
+        <div>
+            <p class="text-xs text-gray-600 text-center mt-4">LARABELLES</p>
         </div>
     </div>
 </body>
