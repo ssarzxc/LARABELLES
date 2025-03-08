@@ -24,6 +24,7 @@
 
             <h4 class="text-lg font-bold">To-Do by LARABELLES</h4>
 
+
         </div>
 
         <form class="mt-4 flex" x-on:submit.prevent>
@@ -52,13 +53,16 @@
                         @keyup.enter="task.editing = false" class="border p-1 rounded-md w-full">
 
                     <!-- Delete Button -->
+
                     <button class="bg-red-500 text-white px-4 py-1 rounded-md text-sm hover:bg-red-600 me-2"
                         @click="tasks = tasks.filter((currTask) => currTask != task)">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
 
                     <!-- Edit Button -->
-                    <button class="bg-blue-500 text-white px-4 py-1 rounded-md text-sm hover:text-blue-700"
+
+                    <button class="bg-blue-500 text-white px-3 py-1 rounded-md text-sm hover:bg-purple-500"
+
                         @click="task.editing = true">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </button>
@@ -69,8 +73,7 @@
         <!-- Clear Tasks Button -->
 
 
-        <button class="w-full mt-4 bg-pink-500 text-white px-8 py-2 rounded-md hover:bg-red-600" @click="tasks = []"
-
+        <button class="w-full mt-4 bg-gray-500 text-white px-8 py-2 rounded-md hover:bg-red-600" @click="tasks = []"
             x-show="tasks.length">
             Clear All Tasks
         </button>
